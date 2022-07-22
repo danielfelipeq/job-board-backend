@@ -15,11 +15,6 @@ const offerSchema = new Schema(
       ref: "Recruiter",
       required: true,
     },
-    status: {
-      type: String,
-      required: false,
-      default: "Pendiente",
-    },
   },
   { timestamps: true }
 );

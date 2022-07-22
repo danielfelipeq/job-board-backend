@@ -26,6 +26,13 @@ const postulantSchema = new Schema({
     ref: "User",
     required: true,
   },
+  offer: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Offer",
+      required: false,
+    },
+  ],
 });
 
 const Postulant = model("Postulant", postulantSchema);
