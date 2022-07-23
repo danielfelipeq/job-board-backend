@@ -13,6 +13,20 @@ const recruiterSchema = new Schema({
     type: String,
     required: false,
   },
+  offer: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Offer",
+      required: false,
+    },
+  ],
+  announcement: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Announcement",
+      required: false,
+    },
+  ],
 });
 
 const Recruiter = model("Recruiter", recruiterSchema);
