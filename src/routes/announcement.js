@@ -1,17 +1,15 @@
 const router = require("express").Router();
-const announcementController = require("../controllers/announcement.controller");
-
-// create a new announcement
-router.post("/", announcementController.create);
-// get all announcements
-router.get("/", announcementController.getAll);
-// get an announcement by id
-router.get("/:id", announcementController.getById);
-// update an announcement
-router.put("/:id", announcementController.update);
-// delete an announcement
-router.delete("/:id", announcementController.delete);
-// get all announcements by recruiter
-router.get("/recruiter", announcementController.getAllByRecruiter);
+const {
+  create,
+  getAll,
+  getById,
+  update,
+} = require("../controllers/announcement.controller");
+const { validateJwt } = require("../middlewares/validateJwt");
+// router with validation
+router.post("/announcement", validateJwt, create);
+router.get("/announcement", getAll);
+router.get("/announcement/:id", getById);
+router.put("/announcement/:id", update);
 
 module.exports = router;

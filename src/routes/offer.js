@@ -1,9 +1,8 @@
 const router = require("express").Router();
-const offerController = require("../controllers/offer.controller");
-
-// create a new offer
-router.post("/", offerController.recruit);
-// get all offers
-router.get("/", offerController.getAll);
-// get an offer by id
-router.get("/:id", offerController.getById);
+const { recruit, getAll, getById } = require("../controllers/offer.controller");
+const { validateJwt } = require("../middlewares/validateJwt");
+// router with validation
+router.post("/offer", validateJwt, recruit);
+router.get("/offer", getAll);
+router.get("/offer/:id", getById);
+module.exports = router;

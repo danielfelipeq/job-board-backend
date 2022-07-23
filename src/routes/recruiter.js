@@ -1,13 +1,15 @@
 const router = require("express").Router();
-const recruiterController = require("../controllers/recruiter.controller");
+const {
+  create,
+  getAll,
+  getById,
+  update,
+} = require("../controllers/recruiter.controller");
+const { validateJwt } = require("../middlewares/validateJwt");
+// router with validation
+router.post("/recruiter", validateJwt, create);
+router.get("/recruiter", getAll);
+router.get("/recruiter/:id", getById);
+router.put("/recruiter/:id", update);
 
-// create a new recruiter
-router.post("/", recruiterController.create);
-// get all recruiters
-router.get("/", recruiterController.getAll);
-// get a recruiter by id
-router.get("/:id", recruiterController.getById);
-// update a recruiter
-router.put("/:id", recruiterController.update);
-// delete a recruiter
-router.delete("/:id", recruiterController.delete);
+module.exports = router;
