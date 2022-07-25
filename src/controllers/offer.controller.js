@@ -1,6 +1,6 @@
-const Offer = require("../models/offer.model");
-const Postulant = require("../models/postulant.model");
-const Recruiter = require("../models/recruiter.model");
+const Offer = require("../model/offer.model");
+const Postulant = require("../model/postulant.model");
+const Recruiter = require("../model/recruiter.model");
 
 const { getUserId } = require("../middlewares/validateJwt");
 
